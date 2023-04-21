@@ -353,8 +353,8 @@ static bool P_LookForPlayers(mobj_t& actor, bool bAllAround) noexcept {
         }
     }
 
-    actor.threshold = TICKSPERSEC * 4;  // Follow for 4 seconds
-    return true;                        // I have a target!
+    actor.threshold = (TICKSPERSEC * 4 / 4);	/* Attack for 4 seconds */
+    return true;		/* I have a target! */
 }
 
 //------------------------------------------------------------------------------------------------------------------------------------------
@@ -442,7 +442,7 @@ void A_Chase(mobj_t& actor) noexcept {
     }
 
     // Check for missile attack
-    if ((gGameSkill == sk_nightmare || actor.movecount <= 0) &&
+    if ((gGameSkill == sk_nightmare || !actor.movecount) &&
         info.missilestate &&
         CheckMissileRange(actor)
     ) {
@@ -454,7 +454,7 @@ void A_Chase(mobj_t& actor) noexcept {
     }
 
     // Chase towards player and move the critter
-    if ((actor.movecount <= 0) || !P_Move(actor)) {
+    if ((actor.movecount == 0) || !P_Move(actor)) {
         P_NewChaseDir(actor);
     }
 

@@ -16,7 +16,7 @@ BEGIN_NAMESPACE(WipeFx)
 // Wipe speed settings.
 // Note that these are scaled according to the resolution scale factor too, so we are not too slow at high resolution.
 //------------------------------------------------------------------------------------------------------------------------------------------
-static constexpr float WIPE_SPEED_PRE_INTRO = 0.75f;    // Note: this was 0.5 in the original 3DO version, speeding it up slightly!
+static constexpr float WIPE_SPEED_PRE_INTRO = 0.5f;
 static constexpr float WIPE_SPEED_INTRO_MULT = 2.0f;
 static constexpr float WIPE_SPEED_INTRO_ADD = WIPE_SPEED_PRE_INTRO;
 static constexpr float WIPE_SPEED_CONSTANT = WIPE_SPEED_PRE_INTRO * 8.0f;

@@ -9,7 +9,14 @@
 #include "Things/MapObj.h"
 #include "UI/StatusBarUI.h"
 
-static constexpr Fixed      VDOORSPEED  = 6 << FRACBITS;                // Speed to open a vertical door
+/*
+ Gibbon - changing this from 6 << to 1 << (6x slower).This is due to the 60hz speed
+ at which 3DO Doom is set to.  So when it runs at a full 60 frames per second, the door opens
+ faster than the played audio and opens nearly immediately.  I guess Becky didn't think
+ about this during implementation of that change, but it never mattered since 3DO Doom
+ never ran well, so it was a mute point at that time.
+ */
+static constexpr Fixed      VDOORSPEED  = 1 << FRACBITS;                // Speed to open a vertical door
 static constexpr uint32_t   VDOORWAIT   = ((TICKSPERSEC * 14) / 3);     // Door time to wait before closing 4.6 seconds
 
 struct vldoor_t {

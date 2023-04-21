@@ -73,30 +73,6 @@ R"(#############################################################################
 Fullscreen = 1
 
 #---------------------------------------------------------------------------------------------------
-# Game render resolution.
-#
-# This controls the resolution that the game engine renders at internally, before being upscaled
-# to the specified output resolution. It is specified as an integer multiple of the original
-# 320x200 resolution.
-# 
-# Here is an example list of 'RenderScale' values and resulting render resolutions:
-#   1 = 320x200
-#   2 = 640x400
-#   3 = 960x600
-#   4 = 1280x800
-#   5 = 1600x1000
-#   6 = 1920x1200
-#   7 = 2240x1400
-#
-# Please note that higher resolutions will be MUCH slower due to the demands of software rendering
-# on the CPU. I recommend '640x400' since it looks a lot sharper than the original resolution but
-# still maintains a nice 'chunky' retro feel while performing excellently. It also 'fits' reasonably
-# well into a variety of output resolutions nicely with not too much space leftover (see settings
-# further below for more details on output scaling).
-#---------------------------------------------------------------------------------------------------
-RenderScale = 1
-
-#---------------------------------------------------------------------------------------------------
 # Output resolution, width and height.
 #
 # In windowed mode this is the size of the window.
@@ -125,42 +101,9 @@ OutputResolutionH = -1
 #---------------------------------------------------------------------------------------------------
 IntegerOutputScaling = 0
 
-#---------------------------------------------------------------------------------------------------
-# Force aspect correct scaling of the output image, toggle.
-#
-# If '1' (enabled) then the game must preserve the original aspect ratio (1.6) of the images
-# produced by the renderer when scaling them to fit the output area.
-#
-# If '0' (disabled) then the game is free to stretch/distort the images in any way for a better fit.
-# Note: disabling aspect correct upscaling might only really take effect if integer output scaling
-# is also disabled, since in many cases integer-only scaling might disallow this kind of strech.
-#---------------------------------------------------------------------------------------------------
-AspectCorrectOutputScaling = 1
-
 )";
 
 static constexpr const char* const DEFAULT_CONFIG_INI_SECTION_4 =
-R"(####################################################################################################
-[Graphics]
-####################################################################################################
-
-#---------------------------------------------------------------------------------------------------
-# When set to '1' the game will simulate an RGB555 style (16 bit) framebuffer similar to what the
-# original 3DO hardware used. Color precision is lost in this mode and there will be much more
-# banding artifacts, however the result will be much closer to the original 3DO Doom visually.
-#---------------------------------------------------------------------------------------------------
-Simulate16BitFramebuffer = 0
-
-#---------------------------------------------------------------------------------------------------
-# If set to '0' then the game will NOT apply so called 'fake contrast', a technique which darkens
-# walls at certain orientations in order to make corners stand out more. The original 3DO Doom did
-# not do fake contrast (unlike the PC version) so this makes the game look more '3DO like'.
-#---------------------------------------------------------------------------------------------------
-DoFakeContrast = 1
-
-)";
-
-static constexpr const char* const DEFAULT_CONFIG_INI_SECTION_5 =
 R"(####################################################################################################
 [InputGeneral]
 ####################################################################################################
@@ -181,7 +124,7 @@ AnalogToDigitalThreshold = 0.5
 
 )";
 
-static constexpr const char* const DEFAULT_CONFIG_INI_SECTION_6 =
+static constexpr const char* const DEFAULT_CONFIG_INI_SECTION_5 =
 R"(####################################################################################################
 [KeyboardControls]
 ####################################################################################################
@@ -234,7 +177,7 @@ F9              = toggle_performance_counters
 
 )";
 
-static constexpr const char* const DEFAULT_CONFIG_INI_SECTION_7 =
+static constexpr const char* const DEFAULT_CONFIG_INI_SECTION_6 =
 R"(####################################################################################################
 [MouseControls]
 ####################################################################################################
@@ -264,7 +207,7 @@ Axis_Y          = weapon_next_prev
 
 )";
 
-static constexpr const char* const DEFAULT_CONFIG_INI_SECTION_8 =
+static constexpr const char* const DEFAULT_CONFIG_INI_SECTION_7 =
 R"(####################################################################################################
 [GameControllerControls]
 ####################################################################################################
@@ -309,7 +252,7 @@ Axis_RightTrigger       = attack
 
 )";
 
-static constexpr const char* const DEFAULT_CONFIG_INI_SECTION_9 =
+static constexpr const char* const DEFAULT_CONFIG_INI_SECTION_8 =
 R"(####################################################################################################
 [Debug]
 ####################################################################################################
@@ -355,7 +298,7 @@ GrantInvulnerability        = IDBEHOLDV
 
 )";
 
-static constexpr const char* const DEFAULT_CONFIG_INI_SECTION_10 =
+static constexpr const char* const DEFAULT_CONFIG_INI_SECTION_9 =
 R"(####################################################################################################
 #
 # Appendix
@@ -562,13 +505,9 @@ std::string                 gGameDataCDImagePath;
 bool                        gbUseGameDataDirectory;
 std::string                 gGameDataDirectoryPath;
 bool                        gbFullscreen;
-uint32_t                    gRenderScale;
 int32_t                     gOutputResolutionW;
 int32_t                     gOutputResolutionH;
 bool                        gbIntegerOutputScaling;
-bool                        gbAspectCorrectOutputScaling;
-bool                        gbSimulate16BitFramebuffer;
-bool                        gbDoFakeContrast;
 float                       gInputAnalogToDigitalThreshold;
 bool                        gbDefaultAlwaysRun;
 Controls::MenuActionBits    gKeyboardMenuActions[Input::NUM_KEYBOARD_KEYS];
@@ -716,7 +655,6 @@ static void regenerateDefaultConfigFileIfNotPresent(const std::string& iniFilePa
     configFile.append(DEFAULT_CONFIG_INI_SECTION_7);
     configFile.append(DEFAULT_CONFIG_INI_SECTION_8);
     configFile.append(DEFAULT_CONFIG_INI_SECTION_9);
-    configFile.append(DEFAULT_CONFIG_INI_SECTION_10);
 
     if (!FileUtils::writeDataToFile(iniFilePath.c_str(), (const std::byte*) configFile.data(), configFile.length())) {
         FATAL_ERROR_F(
@@ -1040,9 +978,6 @@ static void handleConfigEntry(const IniUtils::Entry& entry) noexcept {
         if (entry.key == "Fullscreen") {
             gbFullscreen = entry.getBoolValue(gbFullscreen);
         }
-        else if (entry.key == "RenderScale") {
-            gRenderScale = std::min(std::max(entry.getUintValue(gRenderScale), 1u), 1000u);
-        }
         else if (entry.key == "OutputResolutionW") {
             gOutputResolutionW = entry.getIntValue(gOutputResolutionW);
         }
@@ -1051,17 +986,6 @@ static void handleConfigEntry(const IniUtils::Entry& entry) noexcept {
         }
         else if (entry.key == "IntegerOutputScaling") {
             gbIntegerOutputScaling = entry.getBoolValue(gbIntegerOutputScaling);
-        }
-        else if (entry.key == "AspectCorrectOutputScaling") {
-            gbAspectCorrectOutputScaling = entry.getBoolValue(gbAspectCorrectOutputScaling);
-        }
-    }
-    else if (entry.section == "Graphics") {
-        if (entry.key == "Simulate16BitFramebuffer") {
-            gbSimulate16BitFramebuffer = entry.getBoolValue(gbSimulate16BitFramebuffer);
-        }
-        else if (entry.key == "DoFakeContrast") {
-            gbDoFakeContrast = entry.getBoolValue(gbDoFakeContrast);
         }
     }
     else if (entry.section == "InputGeneral") {
@@ -1130,14 +1054,9 @@ static void clear() noexcept {
     gGameDataDirectoryPath.clear();
 
     gbFullscreen = true;
-    gRenderScale = 1;
     gOutputResolutionW = -1;
     gOutputResolutionH = -1;
     gbIntegerOutputScaling = true;
-    gbAspectCorrectOutputScaling = true;
-
-    gbSimulate16BitFramebuffer = false;
-    gbDoFakeContrast = true;
 
     gInputAnalogToDigitalThreshold = 0.5f;
     gbDefaultAlwaysRun = false;

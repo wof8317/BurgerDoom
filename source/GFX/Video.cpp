@@ -36,12 +36,8 @@ static void determineTargetVideoMode() noexcept {
     // Fullscreen mode and game render resolution
     gbIsFullscreen = Config::gbFullscreen;
 
-    if (Config::gRenderScale <= 0) {
-        FATAL_ERROR_F("Invalid render scale '%u'!", Config::gRenderScale);
-    }
-
-    gScreenWidth = Config::gRenderScale * REFERENCE_SCREEN_WIDTH;
-    gScreenHeight = Config::gRenderScale * REFERENCE_SCREEN_HEIGHT;
+    gScreenWidth = REFERENCE_SCREEN_WIDTH;
+    gScreenHeight = REFERENCE_SCREEN_HEIGHT;
 
     // Get the current screen resolution.
     // Note: MAY not be correct for multiple monitors, but a user can specify manually in those cases.
@@ -101,12 +97,6 @@ static void determineTargetVideoMode() noexcept {
     // Center the output also, if there is space leftover...
     float outputScaleX = (float) gVideoOutputWidth / (float) gScreenWidth;
     float outputScaleY = (float) gVideoOutputHeight / (float) gScreenHeight;
-
-    if (Config::gbAspectCorrectOutputScaling) {
-        const float minScale = std::min(outputScaleX, outputScaleY);
-        outputScaleX = minScale;
-        outputScaleY = minScale;
-    }
 
     if (Config::gbIntegerOutputScaling) {
         outputScaleX = std::trunc(outputScaleX);
@@ -366,10 +356,7 @@ void saveFrameBuffer() noexcept {
 }
 
 void present() noexcept {
-    if (Config::gbSimulate16BitFramebuffer) {
-        do16BitFramebufferSimulation();
-    }
-
+    do16BitFramebufferSimulation();
     unlockFramebufferTexture();
     SDL_RenderCopy(gRenderer, gFramebufferTexture, nullptr, &gOutputRect);
     SDL_RenderPresent(gRenderer);

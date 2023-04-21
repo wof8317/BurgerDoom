@@ -34,78 +34,78 @@ static constexpr state_t*           NULL_STATE      = nullptr;
 
 state_t gStates[NUMSTATES] = {
     state_t{Spr(rSPR_HEALTHBONUS,       0),                 TIME_INF,  NO_PSP_ACTION,   NULL_STATE                },  // S_NULL - Dummy entry
-    state_t{Spr(rSPR_BIGFISTS,          0),                 0,         A_Light0,        NULL_STATE                },  // S_LIGHTDONE
-    state_t{Spr(rSPR_BIGFISTS,          0),                 2,         A_WeaponReady,   &gStates[S_PUNCH]         },  // S_PUNCH
-    state_t{Spr(rSPR_BIGFISTS,          0),                 2,         A_Lower,         &gStates[S_PUNCHDOWN]     },  // S_PUNCHDOWN
-    state_t{Spr(rSPR_BIGFISTS,          0),                 2,         A_Raise,         &gStates[S_PUNCHUP]       },  // S_PUNCHUP
-    state_t{Spr(rSPR_BIGFISTS,          1),                 7,         NO_PSP_ACTION,   &gStates[S_PUNCH2]        },  // S_PUNCH1
-    state_t{Spr(rSPR_BIGFISTS,          2),                 7,         A_Punch,         &gStates[S_PUNCH3]        },  // S_PUNCH2
-    state_t{Spr(rSPR_BIGFISTS,          3),                 8,         NO_PSP_ACTION,   &gStates[S_PUNCH4]        },  // S_PUNCH3
-    state_t{Spr(rSPR_BIGFISTS,          2),                 7,         NO_PSP_ACTION,   &gStates[S_PUNCH5]        },  // S_PUNCH4
-    state_t{Spr(rSPR_BIGFISTS,          1),                 7,         A_ReFire,        &gStates[S_PUNCH]         },  // S_PUNCH5
-    state_t{Spr(rSPR_BIGPISTOL,         0),                 2,         A_WeaponReady,   &gStates[S_PISTOL]        },  // S_PISTOL
-    state_t{Spr(rSPR_BIGPISTOL,         0),                 2,         A_Lower,         &gStates[S_PISTOLDOWN]    },  // S_PISTOLDOWN
-    state_t{Spr(rSPR_BIGPISTOL,         0),                 2,         A_Raise,         &gStates[S_PISTOLUP]      },  // S_PISTOLUP
+    state_t{Spr(rSPR_BIGFISTS,          0),                 0*4,       A_Light0,        NULL_STATE                },  // S_LIGHTDONE
+    state_t{Spr(rSPR_BIGFISTS,          0),                 1*4,       A_WeaponReady,   &gStates[S_PUNCH]         },  // S_PUNCH
+    state_t{Spr(rSPR_BIGFISTS,          0),                 1*4,       A_Lower,         &gStates[S_PUNCHDOWN]     },  // S_PUNCHDOWN
+    state_t{Spr(rSPR_BIGFISTS,          0),                 1*4,       A_Raise,         &gStates[S_PUNCHUP]       },  // S_PUNCHUP
+    state_t{Spr(rSPR_BIGFISTS,          1),                 2*4,       NO_PSP_ACTION,   &gStates[S_PUNCH2]        },  // S_PUNCH1
+    state_t{Spr(rSPR_BIGFISTS,          2),                 2*4,       A_Punch,         &gStates[S_PUNCH3]        },  // S_PUNCH2
+    state_t{Spr(rSPR_BIGFISTS,          3),                 2*4,       NO_PSP_ACTION,   &gStates[S_PUNCH4]        },  // S_PUNCH3
+    state_t{Spr(rSPR_BIGFISTS,          2),                 2*4,       NO_PSP_ACTION,   &gStates[S_PUNCH5]        },  // S_PUNCH4
+    state_t{Spr(rSPR_BIGFISTS,          1),                 2*4,       A_ReFire,        &gStates[S_PUNCH]         },  // S_PUNCH5
+    state_t{Spr(rSPR_BIGPISTOL,         0),                 1*4,       A_WeaponReady,   &gStates[S_PISTOL]        },  // S_PISTOL
+    state_t{Spr(rSPR_BIGPISTOL,         0),                 1*4,       A_Lower,         &gStates[S_PISTOLDOWN]    },  // S_PISTOLDOWN
+    state_t{Spr(rSPR_BIGPISTOL,         0),                 1*4,       A_Raise,         &gStates[S_PISTOLUP]      },  // S_PISTOLUP
     state_t{Spr(rSPR_BIGPISTOL,         0),                 7,         NO_PSP_ACTION,   &gStates[S_PISTOL2]       },  // S_PISTOL1
-    state_t{Spr(rSPR_BIGPISTOL,         1),                 10,        A_FirePistol,    &gStates[S_PISTOL3]       },  // S_PISTOL2
+    state_t{Spr(rSPR_BIGPISTOL,         1),                 3*4,       A_FirePistol,    &gStates[S_PISTOL3]       },  // S_PISTOL2
     state_t{Spr(rSPR_BIGPISTOL,         2),                 7,         NO_PSP_ACTION,   &gStates[S_PISTOL4]       },  // S_PISTOL3
-    state_t{Spr(rSPR_BIGPISTOL,         1),                 9,         A_ReFire,        &gStates[S_PISTOL]        },  // S_PISTOL4
-    state_t{Spr(rSPR_BIGPISTOL,         3|FF_FULLBRIGHT),   11,        A_Light1,        &gStates[S_LIGHTDONE]     },  // S_PISTOLFLASH
-    state_t{Spr(rSPR_BIGSHOTGUN,        0),                 2,         A_WeaponReady,   &gStates[S_SGUN]          },  // S_SGUN
-    state_t{Spr(rSPR_BIGSHOTGUN,        0),                 2,         A_Lower,         &gStates[S_SGUNDOWN]      },  // S_SGUNDOWN
-    state_t{Spr(rSPR_BIGSHOTGUN,        0),                 2,         A_Raise,         &gStates[S_SGUNUP]        },  // S_SGUNUP
+    state_t{Spr(rSPR_BIGPISTOL,         1),                 1*2,       A_ReFire,        &gStates[S_PISTOL]        },  // S_PISTOL4
+    state_t{Spr(rSPR_BIGPISTOL,         3|FF_FULLBRIGHT),   3*4,       A_Light1,        &gStates[S_LIGHTDONE]     },  // S_PISTOLFLASH
+    state_t{Spr(rSPR_BIGSHOTGUN,        0),                 1*4,       A_WeaponReady,   &gStates[S_SGUN]          },  // S_SGUN
+    state_t{Spr(rSPR_BIGSHOTGUN,        0),                 1*4,       A_Lower,         &gStates[S_SGUNDOWN]      },  // S_SGUNDOWN
+    state_t{Spr(rSPR_BIGSHOTGUN,        0),                 1*4,       A_Raise,         &gStates[S_SGUNUP]        },  // S_SGUNUP
     state_t{Spr(rSPR_BIGSHOTGUN,        0),                 5,         NO_PSP_ACTION,   &gStates[S_SGUN2]         },  // S_SGUN1
-    state_t{Spr(rSPR_BIGSHOTGUN,        0),                 12,        A_FireShotgun,   &gStates[S_SGUN3]         },  // S_SGUN2
+    state_t{Spr(rSPR_BIGSHOTGUN,        0),                 2*4,       A_FireShotgun,   &gStates[S_SGUN3]         },  // S_SGUN2
     state_t{Spr(rSPR_BIGSHOTGUN,        1),                 9,         NO_PSP_ACTION,   &gStates[S_SGUN4]         },  // S_SGUN3
     state_t{Spr(rSPR_BIGSHOTGUN,        2),                 9,         NO_PSP_ACTION,   &gStates[S_SGUN5]         },  // S_SGUN4
     state_t{Spr(rSPR_BIGSHOTGUN,        3),                 7,         NO_PSP_ACTION,   &gStates[S_SGUN6]         },  // S_SGUN5
     state_t{Spr(rSPR_BIGSHOTGUN,        2),                 9,         NO_PSP_ACTION,   &gStates[S_SGUN7]         },  // S_SGUN6
     state_t{Spr(rSPR_BIGSHOTGUN,        1),                 9,         NO_PSP_ACTION,   &gStates[S_SGUN8]         },  // S_SGUN7
     state_t{Spr(rSPR_BIGSHOTGUN,        0),                 5,         NO_PSP_ACTION,   &gStates[S_SGUN9]         },  // S_SGUN8
-    state_t{Spr(rSPR_BIGSHOTGUN,        0),                 12,        A_ReFire,        &gStates[S_SGUN]          },  // S_SGUN9
-    state_t{Spr(rSPR_BIGSHOTGUN,        4|FF_FULLBRIGHT),   7,         A_Light1,        &gStates[S_SGUNFLASH2]    },  // S_SGUNFLASH1
-    state_t{Spr(rSPR_BIGSHOTGUN,        5|FF_FULLBRIGHT),   5,         A_Light2,        &gStates[S_LIGHTDONE]     },  // S_SGUNFLASH2
-    state_t{Spr(rSPR_BIGCHAINGUN,       0),                 2,         A_WeaponReady,   &gStates[S_CHAIN]         },  // S_CHAIN
-    state_t{Spr(rSPR_BIGCHAINGUN,       0),                 2,         A_Lower,         &gStates[S_CHAINDOWN]     },  // S_CHAINDOWN
-    state_t{Spr(rSPR_BIGCHAINGUN,       0),                 2,         A_Raise,         &gStates[S_CHAINUP]       },  // S_CHAINUP
+    state_t{Spr(rSPR_BIGSHOTGUN,        0),                 3*4,       A_ReFire,        &gStates[S_SGUN]          },  // S_SGUN9
+    state_t{Spr(rSPR_BIGSHOTGUN,        4|FF_FULLBRIGHT),   2*4,       A_Light1,        &gStates[S_SGUNFLASH2]    },  // S_SGUNFLASH1
+    state_t{Spr(rSPR_BIGSHOTGUN,        5|FF_FULLBRIGHT),   1*4,       A_Light2,        &gStates[S_LIGHTDONE]     },  // S_SGUNFLASH2
+    state_t{Spr(rSPR_BIGCHAINGUN,       0),                 1*4,       A_WeaponReady,   &gStates[S_CHAIN]         },  // S_CHAIN
+    state_t{Spr(rSPR_BIGCHAINGUN,       0),                 1*4,       A_Lower,         &gStates[S_CHAINDOWN]     },  // S_CHAINDOWN
+    state_t{Spr(rSPR_BIGCHAINGUN,       0),                 1*4,       A_Raise,         &gStates[S_CHAINUP]       },  // S_CHAINUP
     state_t{Spr(rSPR_BIGCHAINGUN,       0),                 7,         A_FireCGun,      &gStates[S_CHAIN2]        },  // S_CHAIN1
     state_t{Spr(rSPR_BIGCHAINGUN,       1),                 7,         A_FireCGun,      &gStates[S_CHAIN3]        },  // S_CHAIN2
     state_t{Spr(rSPR_BIGCHAINGUN,       1),                 0,         A_ReFire,        &gStates[S_CHAIN]         },  // S_CHAIN3
     state_t{Spr(rSPR_BIGCHAINGUN,       2|FF_FULLBRIGHT),   9,         A_Light1,        &gStates[S_LIGHTDONE]     },  // S_CHAINFLASH1
     state_t{Spr(rSPR_BIGCHAINGUN,       3|FF_FULLBRIGHT),   9,         A_Light2,        &gStates[S_LIGHTDONE]     },  // S_CHAINFLASH2
-    state_t{Spr(rSPR_BIGROCKET,         0),                 2,         A_WeaponReady,   &gStates[S_MISSILE]       },  // S_MISSILE
-    state_t{Spr(rSPR_BIGROCKET,         0),                 2,         A_Lower,         &gStates[S_MISSILEDOWN]   },  // S_MISSILEDOWN
-    state_t{Spr(rSPR_BIGROCKET,         0),                 2,         A_Raise,         &gStates[S_MISSILEUP]     },  // S_MISSILEUP
-    state_t{Spr(rSPR_BIGROCKET,         1),                 14,        A_GunFlash,      &gStates[S_MISSILE2]      },  // S_MISSILE1
-    state_t{Spr(rSPR_BIGROCKET,         1),                 21,        A_FireMissile,   &gStates[S_MISSILE3]      },  // S_MISSILE2
-    state_t{Spr(rSPR_BIGROCKET,         1),                 0,         A_ReFire,        &gStates[S_MISSILE]       },  // S_MISSILE3
-    state_t{Spr(rSPR_BIGROCKET,         2|FF_FULLBRIGHT),   5,         A_Light1,        &gStates[S_MISSILEFLASH2] },  // S_MISSILEFLASH1
-    state_t{Spr(rSPR_BIGROCKET,         3|FF_FULLBRIGHT),   7,         NO_PSP_ACTION,   &gStates[S_MISSILEFLASH3] },  // S_MISSILEFLASH2
-    state_t{Spr(rSPR_BIGROCKET,         4|FF_FULLBRIGHT),   7,         A_Light2,        &gStates[S_MISSILEFLASH4] },  // S_MISSILEFLASH3
-    state_t{Spr(rSPR_BIGROCKET,         5|FF_FULLBRIGHT),   7,         A_Light2,        &gStates[S_LIGHTDONE]     },  // S_MISSILEFLASH4
-    state_t{Spr(rSPR_BIGCHAINSAW,       2),                 7,         A_WeaponReady,   &gStates[S_SAWB]          },  // S_SAW
-    state_t{Spr(rSPR_BIGCHAINSAW,       3),                 7,         A_WeaponReady,   &gStates[S_SAW]           },  // S_SAWB
-    state_t{Spr(rSPR_BIGCHAINSAW,       2),                 2,         A_Lower,         &gStates[S_SAWDOWN]       },  // S_SAWDOWN
-    state_t{Spr(rSPR_BIGCHAINSAW,       2),                 2,         A_Raise,         &gStates[S_SAWUP]         },  // S_SAWUP
-    state_t{Spr(rSPR_BIGCHAINSAW,       0),                 7,         A_Saw,           &gStates[S_SAW2]          },  // S_SAW1
-    state_t{Spr(rSPR_BIGCHAINSAW,       1),                 7,         A_Saw,           &gStates[S_SAW3]          },  // S_SAW2
-    state_t{Spr(rSPR_BIGCHAINSAW,       1),                 0,         A_ReFire,        &gStates[S_SAW]           },  // S_SAW3
-    state_t{Spr(rSPR_BIGPLASMA,         0),                 2,         A_WeaponReady,   &gStates[S_PLASMA]        },  // S_PLASMA
-    state_t{Spr(rSPR_BIGPLASMA,         0),                 2,         A_Lower,         &gStates[S_PLASMADOWN]    },  // S_PLASMADOWN
-    state_t{Spr(rSPR_BIGPLASMA,         0),                 2,         A_Raise,         &gStates[S_PLASMAUP]      },  // S_PLASMAUP
+    state_t{Spr(rSPR_BIGROCKET,         0),                 1*4,       A_WeaponReady,   &gStates[S_MISSILE]       },  // S_MISSILE
+    state_t{Spr(rSPR_BIGROCKET,         0),                 1*4,       A_Lower,         &gStates[S_MISSILEDOWN]   },  // S_MISSILEDOWN
+    state_t{Spr(rSPR_BIGROCKET,         0),                 1*4,       A_Raise,         &gStates[S_MISSILEUP]     },  // S_MISSILEUP
+    state_t{Spr(rSPR_BIGROCKET,         1),                 4*4,       A_GunFlash,      &gStates[S_MISSILE2]      },  // S_MISSILE1
+    state_t{Spr(rSPR_BIGROCKET,         1),                 6*4,       A_FireMissile,   &gStates[S_MISSILE3]      },  // S_MISSILE2
+    state_t{Spr(rSPR_BIGROCKET,         1),                 0*4,       A_ReFire,        &gStates[S_MISSILE]       },  // S_MISSILE3
+    state_t{Spr(rSPR_BIGROCKET,         2 | FF_FULLBRIGHT), 2*4,       A_Light1,        &gStates[S_MISSILEFLASH2] },  // S_MISSILEFLASH1
+    state_t{Spr(rSPR_BIGROCKET,         3 | FF_FULLBRIGHT), 7,         NO_PSP_ACTION,   &gStates[S_MISSILEFLASH3] },  // S_MISSILEFLASH2
+    state_t{Spr(rSPR_BIGROCKET,         4 | FF_FULLBRIGHT), 2*4,       A_Light2,        &gStates[S_MISSILEFLASH4] },  // S_MISSILEFLASH3
+    state_t{Spr(rSPR_BIGROCKET,         5 | FF_FULLBRIGHT), 2*4,       A_Light2,        &gStates[S_LIGHTDONE]     },  // S_MISSILEFLASH4
+    state_t{Spr(rSPR_BIGCHAINSAW,       2),                 2*4,       A_WeaponReady,   &gStates[S_SAWB]          },  // S_SAW
+    state_t{Spr(rSPR_BIGCHAINSAW,       3),                 2*4,       A_WeaponReady,   &gStates[S_SAW]           },  // S_SAWB
+    state_t{Spr(rSPR_BIGCHAINSAW,       2),                 1*4,       A_Lower,         &gStates[S_SAWDOWN]       },  // S_SAWDOWN
+    state_t{Spr(rSPR_BIGCHAINSAW,       2),                 1*4,       A_Raise,         &gStates[S_SAWUP]         },  // S_SAWUP
+    state_t{Spr(rSPR_BIGCHAINSAW,       0),                 2*4,       A_Saw,           &gStates[S_SAW2]          },  // S_SAW1
+    state_t{Spr(rSPR_BIGCHAINSAW,       1),                 2*4,       A_Saw,           &gStates[S_SAW3]          },  // S_SAW2
+    state_t{Spr(rSPR_BIGCHAINSAW,       1),                 0*4,       A_ReFire,        &gStates[S_SAW]           },  // S_SAW3
+    state_t{Spr(rSPR_BIGPLASMA,         0),                 1*4,       A_WeaponReady,   &gStates[S_PLASMA]        },  // S_PLASMA
+    state_t{Spr(rSPR_BIGPLASMA,         0),                 1*4,       A_Lower,         &gStates[S_PLASMADOWN]    },  // S_PLASMADOWN
+    state_t{Spr(rSPR_BIGPLASMA,         0),                 1*4,       A_Raise,         &gStates[S_PLASMAUP]      },  // S_PLASMAUP
     state_t{Spr(rSPR_BIGPLASMA,         0),                 5,         A_FirePlasma,    &gStates[S_PLASMA2]       },  // S_PLASMA1
     state_t{Spr(rSPR_BIGPLASMA,         1),                 34,        A_ReFire,        &gStates[S_PLASMA]        },  // S_PLASMA2
     state_t{Spr(rSPR_BIGPLASMA,         2|FF_FULLBRIGHT),   7,         A_Light1,        &gStates[S_LIGHTDONE]     },  // S_PLASMAFLASH1
     state_t{Spr(rSPR_BIGPLASMA,         3|FF_FULLBRIGHT),   7,         A_Light1,        &gStates[S_LIGHTDONE]     },  // S_PLASMAFLASH2
-    state_t{Spr(rSPR_BIGBFG,            0),                 2,         A_WeaponReady,   &gStates[S_BFG]           },  // S_BFG
-    state_t{Spr(rSPR_BIGBFG,            0),                 2,         A_Lower,         &gStates[S_BFGDOWN]       },  // S_BFGDOWN
-    state_t{Spr(rSPR_BIGBFG,            0),                 2,         A_Raise,         &gStates[S_BFGUP]         },  // S_BFGUP
-    state_t{Spr(rSPR_BIGBFG,            0),                 34,        A_BFGsound,      &gStates[S_BFG2]          },  // S_BFG1
-    state_t{Spr(rSPR_BIGBFG,            1),                 17,        A_GunFlash,      &gStates[S_BFG3]          },  // S_BFG2
-    state_t{Spr(rSPR_BIGBFG,            1),                 17,        A_FireBFG,       &gStates[S_BFG4]          },  // S_BFG3
-    state_t{Spr(rSPR_BIGBFG,            1),                 34,        A_ReFire,        &gStates[S_BFG]           },  // S_BFG4
-    state_t{Spr(rSPR_BIGBFG,            2|FF_FULLBRIGHT),   19,        A_Light1,        &gStates[S_BFGFLASH2]     },  // S_BFGFLASH1
-    state_t{Spr(rSPR_BIGBFG,            3|FF_FULLBRIGHT),   10,        A_Light2,        &gStates[S_LIGHTDONE]     },  // S_BFGFLASH2
+    state_t{Spr(rSPR_BIGBFG,            0),                 1*4,       A_WeaponReady,   &gStates[S_BFG]           },  // S_BFG
+    state_t{Spr(rSPR_BIGBFG,            0),                 1*4,       A_Lower,         &gStates[S_BFGDOWN]       },  // S_BFGDOWN
+    state_t{Spr(rSPR_BIGBFG,            0),                 1*4,       A_Raise,         &gStates[S_BFGUP]         },  // S_BFGUP
+    state_t{Spr(rSPR_BIGBFG,            0),                 10*4,      A_BFGsound,      &gStates[S_BFG2]          },  // S_BFG1
+    state_t{Spr(rSPR_BIGBFG,            1),                 5*4,       A_GunFlash,      &gStates[S_BFG3]          },  // S_BFG2
+    state_t{Spr(rSPR_BIGBFG,            1),                 5*4,       A_FireBFG,       &gStates[S_BFG4]          },  // S_BFG3
+    state_t{Spr(rSPR_BIGBFG,            1),                 10*4,      A_ReFire,        &gStates[S_BFG]           },  // S_BFG4
+    state_t{Spr(rSPR_BIGBFG,            2|FF_FULLBRIGHT),   5*4,       A_Light1,        &gStates[S_BFGFLASH2]     },  // S_BFGFLASH1
+    state_t{Spr(rSPR_BIGBFG,            3|FF_FULLBRIGHT),   3*4,       A_Light2,        &gStates[S_LIGHTDONE]     },  // S_BFGFLASH2
     state_t{Spr(rSPR_BLUD,              2),                 4*4,       NO_MOBJ_ACTION,  &gStates[S_BLOOD2]        },  // S_BLOOD1
     state_t{Spr(rSPR_BLUD,              1),                 4*4,       NO_MOBJ_ACTION,  &gStates[S_BLOOD3]        },  // S_BLOOD2
     state_t{Spr(rSPR_BLUD,              0),                 4*4,       NO_MOBJ_ACTION,  NULL_STATE                },  // S_BLOOD3
@@ -743,7 +743,7 @@ mobjinfo_t gMObjInfo[NUMMOBJTYPES] = {
         NULL_STATE,                                               // Gross death
         6 * FRACUNIT,                                             // Radius
         8 * FRACUNIT,                                             // Height
-        UINT32_MAX,                                               // Spawn number
+        -1,                                                       // Spawn number
         1000,                                                     // Health
         0,                                                        // Pain chance
         100,                                                      // Mass
@@ -767,7 +767,7 @@ mobjinfo_t gMObjInfo[NUMMOBJTYPES] = {
         NULL_STATE,                                               // Gross death
         6 * FRACUNIT,                                             // Radius
         8 * FRACUNIT,                                             // Height
-        UINT32_MAX,                                               // Spawn number
+        -1,                                                       // Spawn number
         1000,                                                     // Health
         0,                                                        // Pain chance
         100,                                                      // Mass
@@ -791,7 +791,7 @@ mobjinfo_t gMObjInfo[NUMMOBJTYPES] = {
         NULL_STATE,                                               // Gross death
         6 * FRACUNIT,                                             // Radius
         8 * FRACUNIT,                                             // Height
-        UINT32_MAX,                                               // Spawn number
+        -1,                                                       // Spawn number
         1000,                                                     // Health
         0,                                                        // Pain chance
         100,                                                      // Mass
@@ -815,7 +815,7 @@ mobjinfo_t gMObjInfo[NUMMOBJTYPES] = {
         NULL_STATE,                                               // Gross death
         11 * FRACUNIT,                                            // Radius
         8 * FRACUNIT,                                             // Height
-        UINT32_MAX,                                               // Spawn number
+        -1,                                                       // Spawn number
         1000,                                                     // Health
         0,                                                        // Pain chance
         100,                                                      // Mass
@@ -839,12 +839,12 @@ mobjinfo_t gMObjInfo[NUMMOBJTYPES] = {
         NULL_STATE,                                               // Gross death
         13 * FRACUNIT,                                            // Radius
         8 * FRACUNIT,                                             // Height
-        UINT32_MAX,                                               // Spawn number
+        -1,                                                       // Spawn number
         1000,                                                     // Health
         0,                                                        // Pain chance
         100,                                                      // Mass
         MF_NOBLOCKMAP|MF_MISSILE|MF_DROPOFF|MF_NOGRAVITY,         // Flags
-        42,                                                       // Speed
+        50,                                                       // Speed
         8,                                                        // Reaction
         5,                                                        // Damage amount
         sfx_plasma,
@@ -863,7 +863,7 @@ mobjinfo_t gMObjInfo[NUMMOBJTYPES] = {
         NULL_STATE,                                               // Gross death
         13 * FRACUNIT,                                            // Radius
         8 * FRACUNIT,                                             // Height
-        UINT32_MAX,                                               // Spawn number
+        -1,                                                       // Spawn number
         1000,                                                     // Health
         0,                                                        // Pain chance
         100,                                                      // Mass
@@ -887,7 +887,7 @@ mobjinfo_t gMObjInfo[NUMMOBJTYPES] = {
         NULL_STATE,                                               // Gross death
         20 * FRACUNIT,                                            // Radius
         16 * FRACUNIT,                                            // Height
-        UINT32_MAX,                                               // Spawn number
+        -1,                                                       // Spawn number
         1000,                                                     // Health
         0,                                                        // Pain chance
         100,                                                      // Mass
@@ -935,7 +935,7 @@ mobjinfo_t gMObjInfo[NUMMOBJTYPES] = {
         NULL_STATE,                                               // Gross death
         20 * FRACUNIT,                                            // Radius
         16 * FRACUNIT,                                            // Height
-        UINT32_MAX,                                               // Spawn number
+        -1,                                                       // Spawn number
         1000,                                                     // Health
         0,                                                        // Pain chance
         100,                                                      // Mass
@@ -959,7 +959,7 @@ mobjinfo_t gMObjInfo[NUMMOBJTYPES] = {
         NULL_STATE,                                               // Gross death
         20 * FRACUNIT,                                            // Radius
         16 * FRACUNIT,                                            // Height
-        UINT32_MAX,                                               // Spawn number
+        -1,                                                       // Spawn number
         1000,                                                     // Health
         0,                                                        // Pain chance
         100,                                                      // Mass
@@ -1007,7 +1007,7 @@ mobjinfo_t gMObjInfo[NUMMOBJTYPES] = {
         NULL_STATE,                                               // Gross death
         20 * FRACUNIT,                                            // Radius
         16 * FRACUNIT,                                            // Height
-        UINT32_MAX,                                               // Spawn number
+        -1,                                                       // Spawn number
         1000,                                                     // Health
         0,                                                        // Pain chance
         100,                                                      // Mass

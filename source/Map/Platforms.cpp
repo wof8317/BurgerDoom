@@ -8,7 +8,11 @@
 #include "MapData.h"
 #include "Specials.h"
 
-static constexpr Fixed      PLATSPEED   = 2 << FRACBITS;        // Speed of platform motion
+/*
+Gibbon - again, making this half as slow as with the original (2 <<)
+it simply goes way too fast for a plat at 60fps
+*/
+static constexpr Fixed      PLATSPEED   = 1 << FRACBITS;        // Speed of platform motion
 static constexpr uint32_t   PLATWAIT    = 3 * TICKSPERSEC;      // Delay in ticks before platform motion
 
 // Current action for the platform
