@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <cmath>
 #include <cstring>
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 BEGIN_NAMESPACE(Input)
 

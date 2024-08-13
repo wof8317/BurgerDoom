@@ -6,7 +6,7 @@
 #include "Base/IniUtils.h"
 #include "Data.h"
 #include "DoomDefines.h"
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 // MacOS: working around missing support for <filesystem> in everything except the latest bleeding edge OS and Xcode.
 // Use standard Unix file functions instead for now, but some day this can be removed.

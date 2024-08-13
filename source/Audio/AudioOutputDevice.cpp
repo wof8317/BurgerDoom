@@ -4,7 +4,7 @@
 #include "Base/Macros.h"
 #include <algorithm>
 #include <cstring>
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 AudioOutputDevice::AudioOutputDevice() noexcept
     : mbIsInitialized(false)

@@ -1,6 +1,6 @@
 #include "ControllerInput.h"
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 ControllerInput sdlControllerButtonToInput(const uint8_t button) noexcept {
     switch (button) {

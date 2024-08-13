@@ -2,7 +2,7 @@
 
 #include "GFX/Video.h"
 #include <cstring>
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <vector>
 
 BEGIN_NAMESPACE(FatalErrors)

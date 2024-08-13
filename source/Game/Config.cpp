@@ -8,7 +8,7 @@
 #include <algorithm>
 #include <cctype>
 #include <cstring>
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 BEGIN_NAMESPACE(Config)
 
@@ -19,7 +19,7 @@ static_assert(Input::NUM_MOUSE_WHEEL_AXES == 2);
 // Note: these had to be split up into sections because I hit the maximum string limit size of MSVC!
 static constexpr const char* const DEFAULT_CONFIG_INI_SECTION_1 =
 R"(#---------------------------------------------------------------------------------------------------
-# === Phoenix Doom config file ===
+# === Burger Doom config file ===
 #
 # If you want to regenerate this file to the defaults, just delete it and restart the game!
 #---------------------------------------------------------------------------------------------------
@@ -673,7 +673,7 @@ static void regenerateDefaultConfigFileIfNotPresent(const std::string& iniFilePa
 
     SDL_ShowSimpleMessageBox(
         SDL_MESSAGEBOX_INFORMATION,
-        "How to configure Phoenix Doom",
+        "How to configure Burger Doom",
         cfgFileMessage.c_str(),
         nullptr
     );

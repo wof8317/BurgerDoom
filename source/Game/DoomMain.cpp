@@ -17,7 +17,7 @@
 #include "UI/OptionsMenu.h"
 #include "UI/TitleScreens.h"
 #include "UI/WipeFx.h"
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include <thread>
 
 //------------------------------------------------------------------------------------------------------------------------------------------

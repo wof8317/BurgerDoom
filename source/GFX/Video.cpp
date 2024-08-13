@@ -4,7 +4,7 @@
 #include "Game/DoomDefines.h"
 #include <algorithm>
 #include <cmath>
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 BEGIN_NAMESPACE(Video)
 
@@ -182,7 +182,7 @@ void init() noexcept {
     #endif
 
     gWindow = SDL_CreateWindow(
-        "PhoenixDoom V" GAME_VERSION_STR,
+        "BurgerDoom V" GAME_VERSION_STR,
         SDL_WINDOWPOS_CENTERED,
         SDL_WINDOWPOS_CENTERED,
         (int32_t) gVideoOutputWidth,

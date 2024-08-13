@@ -7,11 +7,11 @@
 //------------------------------------------------------------------------------------------------------------------------------------------
 
 // Game version string
-#define GAME_VERSION_STR "1.0.2"
+#define GAME_VERSION_STR "1.0.0"
 
 // These affect the folder that save data and config preferences go into:
-static constexpr const char* const SAVE_FILE_ORG = "com.codelobster";
-static constexpr const char* const SAVE_FILE_PRODUCT = "phoenix_doom";
+static constexpr const char* const SAVE_FILE_ORG = "com.gibbon";
+static constexpr const char* const SAVE_FILE_PRODUCT = "burger_doom";
 
 // View related
 static constexpr uint32_t   MAXSCREENHEIGHT = 160;                  // Maximum height allowed
