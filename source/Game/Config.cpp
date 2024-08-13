@@ -623,7 +623,7 @@ static void setCheatKeySequence(CheatKeySequence& sequence, const char* const pK
 // Determines the path to the config .ini for the game
 //------------------------------------------------------------------------------------------------------------------------------------------
 static std::string determineIniFilePath() noexcept {
-    char* const pCfgFilePath = SDL_GetPrefPath(SAVE_FILE_ORG, SAVE_FILE_PRODUCT);
+    char* const pCfgFilePath = SDL_GetPrefPath(nullptr, SAVE_FILE_PRODUCT);
     auto cleanupCfgFilePath = finally([&](){
         SDL_free(pCfgFilePath);
     });

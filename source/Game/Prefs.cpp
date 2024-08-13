@@ -22,7 +22,7 @@ BEGIN_NAMESPACE(Prefs)
 // Determines the path to the save .ini for preferences
 //------------------------------------------------------------------------------------------------------------------------------------------
 static std::string determineIniFilePath() noexcept {
-    char* const pCfgFilePath = SDL_GetPrefPath(SAVE_FILE_ORG, SAVE_FILE_PRODUCT);
+    char* const pCfgFilePath = SDL_GetPrefPath(nullptr, SAVE_FILE_PRODUCT);
     auto cleanupCfgFilePath = finally([&](){
         SDL_free(pCfgFilePath);
     });

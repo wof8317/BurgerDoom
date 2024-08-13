@@ -10,8 +10,7 @@
 #define GAME_VERSION_STR "1.0.0"
 
 // These affect the folder that save data and config preferences go into:
-static constexpr const char* const SAVE_FILE_ORG = "com.gibbon";
-static constexpr const char* const SAVE_FILE_PRODUCT = "burger_doom";
+static constexpr const char* const SAVE_FILE_PRODUCT = "BurgerDoom";
 
 // View related
 static constexpr uint32_t   MAXSCREENHEIGHT = 160;                  // Maximum height allowed
