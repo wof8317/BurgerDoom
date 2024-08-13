@@ -83,24 +83,6 @@ Fullscreen = 1
 OutputResolutionW = -1
 OutputResolutionH = -1
 
-#---------------------------------------------------------------------------------------------------
-# Force integer-only scaling of the output image, toggle.
-#
-# Controls how the image produced by the renderer is scaled to fit the output resolution size.
-#
-# If set to '1' (enabled) then the game can only upscale in integer multiples, for example it can
-# only evenly 1x, 2x, or 3x etc. stretch the pixels in order to try and fit the rendered image to
-# the target output area. Any parts of the output area which are leftover in this mode are displayed
-# in black (letterboxed). Note that higher renderer resolutions will be harder to fit to any
-# arbitrarily sized output area without leaving lots of space leftover, therefore '320x200' and
-# '640x400' are often the best renderer resolutions to use with this scaling mode.
-#
-# If set to '0' (disabled) then the game can stretch by any decimal amount to fit the rendered image
-# to the output area, but some rows or columns of pixels may be doubled up while others won't be.
-# Note: in all cases nearest filtering is used so the result will never be blurry.
-#---------------------------------------------------------------------------------------------------
-IntegerOutputScaling = 0
-
 )";
 
 static constexpr const char* const DEFAULT_CONFIG_INI_SECTION_4 =
@@ -507,7 +489,6 @@ std::string                 gGameDataDirectoryPath;
 bool                        gbFullscreen;
 int32_t                     gOutputResolutionW;
 int32_t                     gOutputResolutionH;
-bool                        gbIntegerOutputScaling;
 float                       gInputAnalogToDigitalThreshold;
 bool                        gbDefaultAlwaysRun;
 Controls::MenuActionBits    gKeyboardMenuActions[Input::NUM_KEYBOARD_KEYS];
@@ -984,9 +965,6 @@ static void handleConfigEntry(const IniUtils::Entry& entry) noexcept {
         else if (entry.key == "OutputResolutionH") {
             gOutputResolutionH = entry.getIntValue(gOutputResolutionH);
         }
-        else if (entry.key == "IntegerOutputScaling") {
-            gbIntegerOutputScaling = entry.getBoolValue(gbIntegerOutputScaling);
-        }
     }
     else if (entry.section == "InputGeneral") {
         if (entry.key == "AnalogToDigitalThreshold") {
@@ -1056,7 +1034,6 @@ static void clear() noexcept {
     gbFullscreen = true;
     gOutputResolutionW = -1;
     gOutputResolutionH = -1;
-    gbIntegerOutputScaling = true;
 
     gInputAnalogToDigitalThreshold = 0.5f;
     gbDefaultAlwaysRun = false;

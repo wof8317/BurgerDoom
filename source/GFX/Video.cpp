@@ -98,11 +98,6 @@ static void determineTargetVideoMode() noexcept {
     float outputScaleX = (float) gVideoOutputWidth / (float) gScreenWidth;
     float outputScaleY = (float) gVideoOutputHeight / (float) gScreenHeight;
 
-    if (Config::gbIntegerOutputScaling) {
-        outputScaleX = std::trunc(outputScaleX);
-        outputScaleY = std::trunc(outputScaleY);
-    }
-
     if (!gbIsFullscreen) {
         // Trim the window sizes in windowed mode if auto size is enabled
         if (Config::gOutputResolutionW <= 0) {

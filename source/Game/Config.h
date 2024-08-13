@@ -15,7 +15,6 @@ extern std::string  gGameDataDirectoryPath;
 extern bool         gbFullscreen;
 extern int32_t      gOutputResolutionW;
 extern int32_t      gOutputResolutionH;
-extern bool         gbIntegerOutputScaling;
 
 // Input general settings
 extern float    gInputAnalogToDigitalThreshold;
