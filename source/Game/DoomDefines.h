@@ -25,9 +25,9 @@ static constexpr Fixed      ONFLOORZ        = FRACMIN;                      // A
 static constexpr Fixed      ONCEILINGZ      = FRACMAX;                      // Attach object to ceiling with this z
 static constexpr Fixed      GRAVITY         = 4 * FRACUNIT;                 // Rate of fall
 static constexpr Fixed      MAXMOVE         = 16 * FRACUNIT;                // Maximum velocity
-static constexpr Fixed      MAXRADIUS       = 32 << FRACBITS;                // Largest radius of any critter
-static constexpr Fixed      MELEERANGE      = 70 << FRACBITS;                // Range of hand to hand combat
-static constexpr Fixed      MISSILERANGE    = 32 * 64 << FRACBITS;           // Range of guns targeting
+static constexpr Fixed      MAXRADIUS       = 32 << FRACBITS;               // Largest radius of any critter
+static constexpr Fixed      MELEERANGE      = 70 << FRACBITS;               // Range of hand to hand combat
+static constexpr Fixed      MISSILERANGE    = 32 * 64 << FRACBITS;          // Range of guns targeting
 static constexpr Fixed      FLOATSPEED      = 8 * FRACUNIT;                 // Speed an object can float vertically
 static constexpr Fixed      SKULLSPEED      = 40 * FRACUNIT;                // Speed of the skull to attack
 
