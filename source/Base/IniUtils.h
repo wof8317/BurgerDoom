@@ -1,3 +1,5 @@
+#include <cstdint>
+
 #include "Base/Macros.h"
 #include <string>
 

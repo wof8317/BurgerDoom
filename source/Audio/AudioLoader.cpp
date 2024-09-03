@@ -1,5 +1,7 @@
 #include "AudioLoader.h"
 
+#include <limits>
+
 #include "AudioData.h"
 #include "Base/ByteInputStream.h"
 #include "Base/Endian.h"

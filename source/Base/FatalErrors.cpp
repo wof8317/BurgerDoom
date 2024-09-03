@@ -2,6 +2,7 @@
 
 #include "GFX/Video.h"
 #include <cstring>
+#include <exception>
 #include <SDL2/SDL.h>
 #include <vector>
 
